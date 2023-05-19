@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { Modal, Button } from "react-bootstrap";
-import { useTable } from "react-table";
-import faker from "faker";
-import "./styles.css";
-import Loading from "./Loading";
+import React, { useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Modal, Button } from 'react-bootstrap';
+import { useTable } from 'react-table';
+import faker from 'faker';
+import './styles.css';
+import Loading from './Loading';
 
 const generateData = (start, length = 20) =>
   Array.from({ length }).map((_, i) => ({
@@ -13,7 +13,7 @@ const generateData = (start, length = 20) =>
     address: faker.address.streetAddress(),
     email: faker.internet.email(),
     phone: faker.phone.phoneNumber(),
-    dob: faker.date.past().toLocaleDateString()
+    dob: faker.date.past().toLocaleDateString(),
   }));
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
     setTimeout(() => {
       setItems((prevItems) => [
         ...prevItems,
-        ...generateData(prevItems.length)
+        ...generateData(prevItems.length),
       ]);
     }, 1500);
   };
@@ -32,71 +32,74 @@ const App = () => {
   const columns = React.useMemo(
     () => [
       {
-        Header: "ID",
-        accessor: "id"
+        Header: 'ID',
+        accessor: 'id',
       },
       {
-        Header: "Name",
-        accessor: "name"
+        Header: 'Name',
+        accessor: 'name',
       },
       {
-        Header: "Address",
-        accessor: "address"
+        Header: 'Address',
+        accessor: 'address',
       },
       {
-        Header: "Email",
-        accessor: "email"
+        Header: 'Email',
+        accessor: 'email',
       },
       {
-        Header: "Phone",
-        accessor: "phone"
+        Header: 'Phone',
+        accessor: 'phone',
       },
       {
-        Header: "Date of Birth",
-        accessor: "dob"
-      }
+        Header: 'Date of Birth',
+        accessor: 'dob',
+      },
     ],
     []
   );
 
   const tableInstance = useTable({ columns, data: items });
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow
-  } = tableInstance;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    tableInstance;
 
   return (
     <div>
-      <Button variant="primary" onClick={() => setIsOpen(true)}>
-        Open Modal
-      </Button>
-      <Modal show={isOpen} size="xl" onHide={() => setIsOpen(false)}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+        }}
+      >
+        <Button variant='primary' onClick={() => setIsOpen(true)}>
+          Open Modal
+        </Button>
+      </div>
+      <Modal show={isOpen} size='xl' onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
-          <Modal.Title style={{ width: "100%", textAlign: "center" }}>
-            Infinite Scroll Modal Data-table
+          <Modal.Title style={{ width: '100%', textAlign: 'center' }}>
+            React Scrollable Table Modal
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div id="scrollableDiv" style={{ height: "80vh", overflow: "auto" }}>
+          <div id='scrollableDiv' style={{ height: '80vh', overflow: 'auto' }}>
             <InfiniteScroll
               dataLength={items.length}
               next={fetchMoreData}
               hasMore={true}
-              // loader={<h4>Loading...</h4>}
               loader={<Loading />}
-              scrollableTarget="scrollableDiv"
+              scrollableTarget='scrollableDiv'
             >
-              <table {...getTableProps()} className="table table-striped">
+              <table {...getTableProps()} className='table table-striped'>
                 <thead>
                   {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                       {headerGroup.headers.map((column) => (
                         <th {...column.getHeaderProps()}>
-                          {column.render("Header")}
+                          {column.render('Header')}
                         </th>
                       ))}
                     </tr>
@@ -110,7 +113,7 @@ const App = () => {
                         {row.cells.map((cell) => {
                           return (
                             <td {...cell.getCellProps()}>
-                              {cell.render("Cell")}
+                              {cell.render('Cell')}
                             </td>
                           );
                         })}
