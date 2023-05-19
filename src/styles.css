@@ -1,0 +1,9 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.my-modal-class .modal-dialog {
+  height: 80vh;
+  overflow: auto;
+}
