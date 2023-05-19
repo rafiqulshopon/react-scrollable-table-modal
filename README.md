@@ -15,19 +15,25 @@ This project showcases the integration of `react-table`, `react-infinite-scroll-
 
 ## Installation
 
-1. Clone the repository
-git clone https://github.com/rafiqulshopon/react-scrollable-table-modal.git
-
-2. Navigate to the project directory
-cd react-scrollable-table-modal
-
-3. Install the dependencies
-npm install
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/rafiqulshopon/react-scrollable-table-modal.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd react-scrollable-table-modal
+    ```
+3. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
 ## Usage
 
 To start the development server:
-npm start
+    ```bash
+    npm start
+    ```
 
 
 Upon opening a modal, you will see a table filled with data. As you scroll to the bottom of the table, more data will be fetched and appended to the table. This gives the user an infinite scrolling experience. 
