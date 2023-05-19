@@ -31,7 +31,7 @@ This project showcases the integration of `react-table`, `react-infinite-scroll-
 ## Usage
 
 To start the development server:
-    ```bash
+    ```
     npm start
     ```
 
