@@ -44,4 +44,4 @@ Contributions, issues and feature requests are welcome. Feel free to check [issu
 
 ## License
 
-This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
+This project is licensed under the [MIT License](https://github.com/rafiqulshopon/react-scrollable-table-modal/blob/local/LICENSE).
